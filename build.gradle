@@ -4,6 +4,10 @@ plugins {
     id 'io.spring.dependency-management' version '1.1.4'
 }
 
+ext {
+    springCloudAwsVersion = '3.1.1'
+}
+
 group = 'app.catsriding'
 version = '0.0.1-SNAPSHOT'
 
@@ -22,6 +26,9 @@ repositories {
 }
 
 dependencies {
+    implementation platform("io.awspring.cloud:spring-cloud-aws-dependencies:${springCloudAwsVersion}")
+    implementation 'io.awspring.cloud:spring-cloud-aws-starter-s3'
+
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
